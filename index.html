@@ -1,15 +1,24 @@
-```html
 <!DOCTYPE html>
 <html lang="id">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>Nohaa4 | Portfolio</title>
-
-    <meta name="description" content="Portfolio Nohaa4 - Informatics Student & Web Developer">
+    <title>Noha Noor | Portfolio</title>
+    <meta name="description" content="Portfolio Noha Noor - Informatics Student & Web Developer">
 
     <style>
+        :root {
+            --navy: #0f172a;
+            --navy-light: #17233b;
+            --gold: #c6a15b;
+            --gold-light: #dfc58f;
+            --ivory: #f8f6f0;
+            --white: #ffffff;
+            --text: #1e293b;
+            --muted: #64748b;
+            --border: #e7e2d7;
+        }
+
         * {
             margin: 0;
             padding: 0;
@@ -19,23 +28,22 @@
 
         body {
             font-family: Arial, Helvetica, sans-serif;
-            background: #f8f9fa;
-            color: #222;
-            line-height: 1.6;
+            background: var(--ivory);
+            color: var(--text);
+            line-height: 1.7;
         }
 
-        /* NAVBAR */
         nav {
             position: fixed;
             top: 0;
             width: 100%;
-            background: rgba(255, 255, 255, 0.95);
-            border-bottom: 1px solid #eee;
+            background: rgba(15, 23, 42, 0.96);
+            border-bottom: 1px solid rgba(198, 161, 91, 0.25);
             z-index: 1000;
         }
 
         .nav-container {
-            max-width: 1100px;
+            max-width: 1120px;
             margin: auto;
             padding: 18px 25px;
             display: flex;
@@ -44,9 +52,13 @@
         }
 
         .logo {
-            font-size: 22px;
+            color: var(--white);
+            font-size: 23px;
             font-weight: bold;
-            color: #111;
+        }
+
+        .logo span {
+            color: var(--gold);
         }
 
         .nav-links {
@@ -56,61 +68,80 @@
         }
 
         .nav-links a {
+            color: #e2e8f0;
             text-decoration: none;
-            color: #444;
             font-size: 14px;
-            transition: 0.3s;
+            transition: .3s;
         }
 
         .nav-links a:hover {
-            color: #000;
+            color: var(--gold-light);
         }
 
-        /* HERO */
         .hero {
             min-height: 100vh;
             display: flex;
             align-items: center;
-            padding: 100px 25px 60px;
+            padding: 120px 25px 80px;
+            background:
+                radial-gradient(circle at 80% 40%, rgba(198,161,91,.10), transparent 30%),
+                linear-gradient(135deg, var(--navy), #111c31);
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: "";
+            position: absolute;
+            width: 280px;
+            height: 280px;
+            border: 1px solid rgba(198,161,91,.3);
+            border-radius: 50%;
+            right: -80px;
+            top: 100px;
         }
 
         .hero-container {
-            max-width: 1100px;
+            max-width: 1120px;
             width: 100%;
             margin: auto;
             display: grid;
-            grid-template-columns: 1.3fr 0.7fr;
-            gap: 60px;
+            grid-template-columns: 1.25fr .75fr;
+            gap: 70px;
             align-items: center;
+            position: relative;
+            z-index: 1;
         }
 
         .small-text {
-            color: #777;
+            color: var(--gold-light);
             font-size: 14px;
+            letter-spacing: 3px;
             margin-bottom: 15px;
         }
 
         .hero h1 {
-            font-size: clamp(42px, 7vw, 72px);
+            font-family: Georgia, serif;
+            font-size: clamp(48px, 7vw, 76px);
             line-height: 1.05;
             margin-bottom: 20px;
-            color: #111;
         }
 
         .hero h1 span {
-            color: #555;
+            color: var(--gold);
         }
 
         .hero-description {
-            max-width: 600px;
-            color: #666;
+            max-width: 620px;
+            color: #cbd5e1;
             font-size: 17px;
-            margin-bottom: 30px;
+            margin-bottom: 32px;
         }
 
         .buttons {
             display: flex;
-            gap: 15px;
+            gap: 14px;
             flex-wrap: wrap;
         }
 
@@ -120,64 +151,77 @@
             border-radius: 7px;
             text-decoration: none;
             font-size: 14px;
-            transition: 0.3s;
+            transition: .3s;
         }
 
         .btn-primary {
-            background: #111;
-            color: white;
+            background: var(--gold);
+            color: var(--navy);
+            font-weight: bold;
         }
 
         .btn-primary:hover {
-            background: #333;
+            background: var(--gold-light);
+            transform: translateY(-2px);
         }
 
         .btn-secondary {
-            border: 1px solid #ccc;
-            color: #222;
-            background: white;
+            border: 1px solid var(--gold);
+            color: white;
+            background: transparent;
         }
 
         .btn-secondary:hover {
-            background: #f1f1f1;
+            background: rgba(198,161,91,.12);
+            transform: translateY(-2px);
         }
 
         .profile-box {
-            width: 260px;
-            height: 260px;
+            width: 270px;
+            height: 270px;
             margin: auto;
             border-radius: 50%;
-            background: #e9ecef;
+            border: 2px solid var(--gold);
+            background: #e9e3d5;
             display: flex;
             align-items: center;
             justify-content: center;
-            color: #888;
+            color: #64748b;
             font-size: 14px;
             text-align: center;
+            box-shadow: 0 0 0 10px rgba(198,161,91,.07);
         }
 
-        /* SECTION */
         section {
             padding: 100px 25px;
         }
 
         .container {
-            max-width: 1100px;
+            max-width: 1120px;
             margin: auto;
         }
 
         .section-title {
-            font-size: 36px;
+            font-family: Georgia, serif;
+            font-size: 38px;
             margin-bottom: 10px;
-            color: #111;
+            color: var(--navy);
+        }
+
+        .section-title::before {
+            content: "";
+            display: inline-block;
+            width: 38px;
+            height: 2px;
+            background: var(--gold);
+            margin: 0 14px 10px 0;
         }
 
         .section-subtitle {
-            color: #777;
+            color: var(--muted);
             margin-bottom: 45px;
         }
 
-        /* PROJECTS */
         .projects {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
@@ -185,25 +229,26 @@
         }
 
         .project-card {
-            background: white;
-            border: 1px solid #eee;
+            background: var(--white);
+            border: 1px solid var(--border);
             border-radius: 12px;
             overflow: hidden;
-            transition: 0.3s;
+            transition: .3s;
+            box-shadow: 0 5px 20px rgba(15,23,42,.04);
         }
 
         .project-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+            transform: translateY(-7px);
+            box-shadow: 0 15px 35px rgba(15,23,42,.10);
         }
 
         .project-image {
-            height: 190px;
-            background: #e9ecef;
+            height: 185px;
+            background: linear-gradient(135deg, #e9e3d5, #dbe2eb);
             display: flex;
             align-items: center;
             justify-content: center;
-            color: #888;
+            color: var(--muted);
             font-size: 14px;
         }
 
@@ -212,12 +257,13 @@
         }
 
         .project-content h3 {
+            color: var(--navy);
             margin-bottom: 10px;
             font-size: 20px;
         }
 
         .project-content p {
-            color: #666;
+            color: var(--muted);
             font-size: 14px;
             margin-bottom: 20px;
         }
@@ -230,21 +276,24 @@
         }
 
         .tag {
-            background: #f1f1f1;
+            background: #f1eee6;
+            color: #596579;
             padding: 5px 9px;
             border-radius: 5px;
             font-size: 11px;
-            color: #555;
         }
 
         .project-link {
-            color: #111;
+            color: #a47e38;
             text-decoration: none;
             font-size: 14px;
             font-weight: bold;
         }
 
-        /* ABOUT */
+        .project-link:hover {
+            color: var(--navy);
+        }
+
         .about {
             background: white;
         }
@@ -257,11 +306,10 @@
         }
 
         .about-text p {
-            color: #666;
+            color: var(--muted);
             margin-bottom: 15px;
         }
 
-        /* SKILLS */
         .skills {
             display: flex;
             flex-wrap: wrap;
@@ -269,22 +317,34 @@
         }
 
         .skill {
-            padding: 10px 16px;
-            background: #f5f5f5;
-            border: 1px solid #eee;
+            padding: 11px 17px;
+            background: white;
+            border: 1px solid var(--border);
             border-radius: 7px;
             font-size: 14px;
+            color: var(--navy);
+            transition: .3s;
         }
 
-        /* CONTACT */
+        .skill:hover {
+            border-color: var(--gold);
+            transform: translateY(-2px);
+        }
+
         .contact {
+            background: var(--navy);
+            color: white;
             text-align: center;
+        }
+
+        .contact .section-title {
+            color: white;
         }
 
         .contact p {
             max-width: 600px;
             margin: 0 auto 30px;
-            color: #666;
+            color: #cbd5e1;
         }
 
         .contact-links {
@@ -294,22 +354,22 @@
             flex-wrap: wrap;
         }
 
-        /* FOOTER */
         footer {
             padding: 25px;
             text-align: center;
-            color: #888;
+            color: #94a3b8;
             font-size: 13px;
-            border-top: 1px solid #eee;
+            background: #0b1220;
+            border-top: 1px solid rgba(198,161,91,.2);
         }
 
-        /* MOBILE */
         @media (max-width: 800px) {
             .nav-links {
                 gap: 15px;
             }
 
-            .hero-container {
+            .hero-container,
+            .about-grid {
                 grid-template-columns: 1fr;
                 text-align: center;
             }
@@ -327,14 +387,13 @@
                 grid-template-columns: 1fr;
             }
 
-            .about-grid {
-                grid-template-columns: 1fr;
-                gap: 40px;
+            .profile-box {
+                width: 220px;
+                height: 220px;
             }
 
-            .profile-box {
-                width: 200px;
-                height: 200px;
+            .section-title::before {
+                display: none;
             }
         }
     </style>
@@ -342,286 +401,169 @@
 
 <body>
 
-    <!-- NAVBAR -->
-    <nav>
-        <div class="nav-container">
-            <div class="logo">Nohaa4.</div>
+<nav>
+    <div class="nav-container">
+        <div class="logo">Noha <span>Noor.</span></div>
+        <ul class="nav-links">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </div>
+</nav>
 
-            <ul class="nav-links">
-                <li><a href="#home">Home</a></li>
-                <li><a href="#projects">Projects</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
+<section class="hero" id="home">
+    <div class="hero-container">
+        <div>
+            <p class="small-text">HELLO, I'M</p>
+            <h1>Noha <span>Noor</span></h1>
+            <h2 style="font-family:Georgia,serif;font-size:30px;font-weight:normal;margin-bottom:18px;">
+                Informatics Student
+            </h2>
+            <p class="hero-description">
+                Saya mahasiswa Informatika yang memiliki ketertarikan pada
+                pengembangan aplikasi web dan pengolahan data.
+            </p>
+            <div class="buttons">
+                <a href="#projects" class="btn btn-primary">View My Projects</a>
+                <a href="#contact" class="btn btn-secondary">Contact Me</a>
+            </div>
         </div>
-    </nav>
 
+        <div class="profile-box">Your Photo</div>
+    </div>
+</section>
 
-    <!-- HERO -->
-    <section class="hero" id="home">
-        <div class="hero-container">
+<section id="projects">
+    <div class="container">
+        <h2 class="section-title">My Projects</h2>
+        <p class="section-subtitle">Beberapa project yang telah saya kerjakan.</p>
 
+        <div class="projects">
+
+            <div class="project-card">
+                <div class="project-image">Project Screenshot</div>
+                <div class="project-content">
+                    <h3>Sistem Arsip Surat</h3>
+                    <p>
+                        Sistem berbasis web untuk membantu proses penyimpanan,
+                        pengelolaan, dan pencarian dokumen surat secara terstruktur.
+                    </p>
+                    <div class="tags">
+                        <span class="tag">PHP</span>
+                        <span class="tag">CodeIgniter 4</span>
+                        <span class="tag">MySQL</span>
+                        <span class="tag">Bootstrap</span>
+                    </div>
+                    <a href="#" class="project-link">View Project →</a>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <div class="project-image">Project Screenshot</div>
+                <div class="project-content">
+                    <h3>Sistem Pendaftaran PAUD</h3>
+                    <p>
+                        Sistem pendaftaran siswa berbasis web yang memungkinkan
+                        proses pendaftaran dilakukan secara online dan terstruktur.
+                    </p>
+                    <div class="tags">
+                        <span class="tag">PHP</span>
+                        <span class="tag">MySQL</span>
+                        <span class="tag">Bootstrap</span>
+                    </div>
+                    <a href="#" class="project-link">View Project →</a>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <div class="project-image">Project Screenshot</div>
+                <div class="project-content">
+                    <h3>Hospital Management System</h3>
+                    <p>
+                        Aplikasi berbasis web untuk membantu pengelolaan data
+                        dan proses administrasi pada lingkungan rumah sakit.
+                    </p>
+                    <div class="tags">
+                        <span class="tag">PHP</span>
+                        <span class="tag">CodeIgniter 4</span>
+                        <span class="tag">MySQL</span>
+                    </div>
+                    <a href="#" class="project-link">View Project →</a>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<section class="about" id="about">
+    <div class="container">
+        <div class="about-grid">
             <div>
-                <p class="small-text">Hello, I'm</p>
+                <h2 class="section-title">About Me</h2>
+                <p class="section-subtitle">Get to know me.</p>
+            </div>
 
-                <h1>
-                    Nohaa4<br>
-                    <span>Informatics Student.</span>
-                </h1>
-
-                <p class="hero-description">
-                    Saya mahasiswa Informatika yang memiliki ketertarikan
+            <div class="about-text">
+                <p>
+                    Saya merupakan mahasiswa Informatika yang memiliki ketertarikan
                     pada pengembangan aplikasi web dan pengolahan data.
                 </p>
-
-                <div class="buttons">
-                    <a href="#projects" class="btn btn-primary">
-                        View My Projects
-                    </a>
-
-                    <a href="#contact" class="btn btn-secondary">
-                        Contact Me
-                    </a>
-                </div>
-            </div>
-
-            <div class="profile-box">
-                Your Photo
-            </div>
-
-        </div>
-    </section>
-
-
-    <!-- PROJECTS -->
-    <section id="projects">
-        <div class="container">
-
-            <h2 class="section-title">Projects</h2>
-
-            <p class="section-subtitle">
-                Beberapa project yang telah saya kerjakan.
-            </p>
-
-            <div class="projects">
-
-                <!-- PROJECT 1 -->
-                <div class="project-card">
-
-                    <div class="project-image">
-                        Project Screenshot
-                    </div>
-
-                    <div class="project-content">
-
-                        <h3>Sistem Arsip Surat</h3>
-
-                        <p>
-                            Sistem berbasis web untuk membantu proses
-                            penyimpanan, pengelolaan, dan pencarian
-                            dokumen surat secara terstruktur.
-                        </p>
-
-                        <div class="tags">
-                            <span class="tag">PHP</span>
-                            <span class="tag">CodeIgniter 4</span>
-                            <span class="tag">MySQL</span>
-                            <span class="tag">Bootstrap</span>
-                        </div>
-
-                        <a href="#" class="project-link">
-                            View Project →
-                        </a>
-
-                    </div>
-                </div>
-
-
-                <!-- PROJECT 2 -->
-                <div class="project-card">
-
-                    <div class="project-image">
-                        Project Screenshot
-                    </div>
-
-                    <div class="project-content">
-
-                        <h3>Sistem Pendaftaran PAUD</h3>
-
-                        <p>
-                            Sistem pendaftaran siswa berbasis web yang
-                            memungkinkan proses pendaftaran dilakukan
-                            secara online dan terstruktur.
-                        </p>
-
-                        <div class="tags">
-                            <span class="tag">PHP</span>
-                            <span class="tag">MySQL</span>
-                            <span class="tag">Bootstrap</span>
-                        </div>
-
-                        <a href="#" class="project-link">
-                            View Project →
-                        </a>
-
-                    </div>
-                </div>
-
-
-                <!-- PROJECT 3 -->
-                <div class="project-card">
-
-                    <div class="project-image">
-                        Project Screenshot
-                    </div>
-
-                    <div class="project-content">
-
-                        <h3>Hospital Management System</h3>
-
-                        <p>
-                            Aplikasi berbasis web untuk membantu
-                            pengelolaan data dan proses administrasi
-                            pada lingkungan rumah sakit.
-                        </p>
-
-                        <div class="tags">
-                            <span class="tag">PHP</span>
-                            <span class="tag">CodeIgniter 4</span>
-                            <span class="tag">MySQL</span>
-                        </div>
-
-                        <a href="#" class="project-link">
-                            View Project →
-                        </a>
-
-                    </div>
-                </div>
-
+                <p>
+                    Saya memiliki pengalaman mengerjakan beberapa project berbasis
+                    web menggunakan PHP, CodeIgniter, MySQL, HTML, CSS, dan Bootstrap.
+                </p>
+                <p>
+                    Saya terus mengembangkan kemampuan teknis melalui project dan
+                    pembelajaran mandiri untuk mempersiapkan diri memasuki dunia kerja.
+                </p>
             </div>
         </div>
-    </section>
+    </div>
+</section>
 
+<section id="skills">
+    <div class="container">
+        <h2 class="section-title">Skills & Tools</h2>
+        <p class="section-subtitle">Technologies and tools I use.</p>
 
-    <!-- ABOUT -->
-    <section class="about" id="about">
-        <div class="container">
-
-            <div class="about-grid">
-
-                <div>
-                    <h2 class="section-title">
-                        About Me
-                    </h2>
-
-                    <p class="section-subtitle">
-                        Get to know me.
-                    </p>
-                </div>
-
-                <div class="about-text">
-
-                    <p>
-                        Saya merupakan mahasiswa Informatika yang memiliki
-                        ketertarikan pada pengembangan aplikasi web dan
-                        pengolahan data.
-                    </p>
-
-                    <p>
-                        Saya memiliki pengalaman mengerjakan beberapa
-                        project berbasis web menggunakan PHP, CodeIgniter,
-                        MySQL, HTML, CSS, dan Bootstrap.
-                    </p>
-
-                    <p>
-                        Saya terus mengembangkan kemampuan teknis melalui
-                        project dan pembelajaran mandiri untuk mempersiapkan
-                        diri memasuki dunia kerja.
-                    </p>
-
-                </div>
-
-            </div>
-
+        <div class="skills">
+            <span class="skill">HTML</span>
+            <span class="skill">CSS</span>
+            <span class="skill">JavaScript</span>
+            <span class="skill">PHP</span>
+            <span class="skill">CodeIgniter 4</span>
+            <span class="skill">MySQL</span>
+            <span class="skill">Bootstrap</span>
+            <span class="skill">SQL</span>
+            <span class="skill">Microsoft Excel</span>
+            <span class="skill">Python</span>
         </div>
-    </section>
+    </div>
+</section>
 
+<section class="contact" id="contact">
+    <div class="container">
+        <h2 class="section-title">Let's Connect</h2>
+        <p>
+            Jika ingin mengetahui lebih lanjut mengenai project atau ingin bekerja
+            sama, silakan hubungi saya.
+        </p>
 
-    <!-- SKILLS -->
-    <section>
-        <div class="container">
-
-            <h2 class="section-title">
-                Skills
-            </h2>
-
-            <p class="section-subtitle">
-                Technologies and tools I use.
-            </p>
-
-            <div class="skills">
-
-                <span class="skill">HTML</span>
-                <span class="skill">CSS</span>
-                <span class="skill">JavaScript</span>
-                <span class="skill">PHP</span>
-                <span class="skill">CodeIgniter 4</span>
-                <span class="skill">MySQL</span>
-                <span class="skill">Bootstrap</span>
-                <span class="skill">SQL</span>
-                <span class="skill">Microsoft Excel</span>
-                <span class="skill">Python</span>
-
-            </div>
-
+        <div class="contact-links">
+            <a href="mailto:emailkamu@gmail.com" class="btn btn-primary">Email Me</a>
+            <a href="https://github.com/Nohaa4" target="_blank" class="btn btn-secondary">GitHub</a>
+            <a href="#" class="btn btn-secondary">LinkedIn</a>
         </div>
-    </section>
+    </div>
+</section>
 
-
-    <!-- CONTACT -->
-    <section class="contact" id="contact">
-
-        <div class="container">
-
-            <h2 class="section-title">
-                Let's Connect
-            </h2>
-
-            <p>
-                Jika ingin mengetahui lebih lanjut mengenai project
-                atau ingin bekerja sama, silakan hubungi saya.
-            </p>
-
-            <div class="contact-links">
-
-                <a href="mailto:emailkamu@gmail.com"
-                   class="btn btn-primary">
-                    Email Me
-                </a>
-
-                <a href="https://github.com/Nohaa4"
-                   target="_blank"
-                   class="btn btn-secondary">
-                    GitHub
-                </a>
-
-                <a href="#"
-                   class="btn btn-secondary">
-                    LinkedIn
-                </a>
-
-            </div>
-
-        </div>
-
-    </section>
-
-
-    <!-- FOOTER -->
-    <footer>
-        © 2026 Nohaa4. All rights reserved.
-    </footer>
+<footer>
+    © 2026 Noha Noor. All rights reserved.
+</footer>
 
 </body>
 </html>
-```
