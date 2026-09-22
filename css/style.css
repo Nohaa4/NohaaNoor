@@ -81,16 +81,16 @@ body.dark-mode {
 ========================================================= */
 
 .container {
-    width: min(1160px, calc(100% - 40px));
+    width: min(var(--container), calc(100% - 40px));
     margin: 0 auto;
 }
 
 .section {
-    padding: 100px 0;
+    padding: 90px 0;
 }
 
 .section-header {
-    margin-bottom: 50px;
+    margin-bottom: 45px;
     max-width: 700px;
 }
 
@@ -247,8 +247,8 @@ body.dark-mode {
     display: grid;
     grid-template-columns: 1.2fr 0.8fr;
     align-items: center;
-    gap: 80px;
-    padding: 80px 0;
+    gap: 70px;
+    padding: 75px 0;
 }
 
 .hero-label {
@@ -264,6 +264,9 @@ body.dark-mode {
     font-size: clamp(55px, 7vw, 88px);
     line-height: 1;
     margin-bottom: 15px;
+
+    /* SATU WARNA */
+    color: var(--gold);
 }
 
 .hero h1 span {
@@ -340,6 +343,7 @@ body.dark-mode {
     position: relative;
     display: flex;
     justify-content: center;
+    align-items: center;
 }
 
 .hero-image {
@@ -507,9 +511,13 @@ body.dark-mode {
     box-shadow: var(--shadow);
 }
 
+
+/* FOTO PROJECT 16:9 */
+
 .project-image {
     position: relative;
-    height: 220px;
+    width: 100%;
+    aspect-ratio: 16 / 9;
     background: var(--navy);
     overflow: hidden;
 }
@@ -592,22 +600,55 @@ body.dark-mode {
 
 .experience-item {
     display: grid;
-    grid-template-columns: 260px 1fr;
-    gap: 60px;
-    padding: 45px 0;
+
+    /*
+       FOTO | NOMOR | ISI
+    */
+    grid-template-columns: 260px 110px 1fr;
+
+    gap: 30px;
+    padding: 40px 0;
     border-bottom: 1px solid var(--border);
+
+    align-items: start;
 }
+
+
+/* FOTO EXPERIENCE 16:9 */
+
+.experience-image {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    overflow: hidden;
+    background: var(--navy);
+    border: 1px solid var(--border);
+}
+
+.experience-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.4s ease;
+}
+
+.experience-item:hover .experience-image img {
+    transform: scale(1.03);
+}
+
+
+/* BAGIAN NOMOR */
 
 .experience-side {
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    gap: 7px;
 }
 
 .experience-number {
     color: var(--gold);
     font-family: Georgia, "Times New Roman", serif;
     font-size: 30px;
+    line-height: 1;
 }
 
 .experience-type {
@@ -618,17 +659,21 @@ body.dark-mode {
     letter-spacing: 1.5px;
 }
 
+
+/* ISI EXPERIENCE */
+
 .experience-content h3 {
     color: var(--text);
     font-family: Georgia, "Times New Roman", serif;
-    font-size: 28px;
-    margin-bottom: 12px;
+    font-size: 25px;
+    line-height: 1.3;
+    margin-bottom: 10px;
 }
 
 .experience-content p {
     color: var(--muted);
     max-width: 750px;
-    margin-bottom: 18px;
+    margin-bottom: 15px;
 }
 
 .experience-content ul {
@@ -652,10 +697,48 @@ body.dark-mode {
 
 .education-card {
     display: grid;
-    grid-template-columns: 200px 1fr;
+
+    /*
+       TAHUN | LOGO | ISI
+    */
+    grid-template-columns: 130px 100px 1fr;
+
+    align-items: center;
+    gap: 30px;
+
     background: var(--white);
     border: 1px solid var(--border);
-    padding: 40px;
+    padding: 35px 40px;
+
+    transition: 0.3s ease;
+}
+
+.education-card:hover {
+    box-shadow: var(--shadow);
+}
+
+
+/* LOGO KAMPUS 1:1 */
+
+.education-logo {
+    width: 100px;
+    height: 100px;
+    aspect-ratio: 1 / 1;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    overflow: hidden;
+    border: 1px solid var(--border);
+    background: var(--white);
+    padding: 8px;
+}
+
+.education-logo img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
 }
 
 .education-year {
@@ -669,6 +752,7 @@ body.dark-mode {
     font-family: Georgia, "Times New Roman", serif;
     color: var(--text);
     font-size: 28px;
+    line-height: 1.3;
     margin-bottom: 5px;
 }
 
@@ -745,6 +829,7 @@ body.dark-mode {
     color: var(--gold-light);
     font-size: 12px;
     font-weight: 700;
+    flex-shrink: 0;
 }
 
 .contact-link small {
@@ -801,16 +886,25 @@ body.dark-mode {
     position: fixed;
     bottom: 25px;
     right: 25px;
+
     background: var(--navy);
     color: var(--white);
+
     padding: 13px 18px;
+
     font-size: 12px;
+
     border-left: 3px solid var(--gold);
+
     box-shadow: var(--shadow);
+
     transform: translateY(100px);
     opacity: 0;
+
     pointer-events: none;
+
     transition: 0.3s ease;
+
     z-index: 2000;
 }
 
@@ -827,7 +921,9 @@ body.dark-mode {
 .reveal {
     opacity: 0;
     transform: translateY(25px);
-    transition: opacity 0.7s ease, transform 0.7s ease;
+    transition:
+        opacity 0.7s ease,
+        transform 0.7s ease;
 }
 
 .reveal.visible {
@@ -837,7 +933,7 @@ body.dark-mode {
 
 
 /* =========================================================
-   RESPONSIVE
+   RESPONSIVE 1000px
 ========================================================= */
 
 @media (max-width: 1000px) {
@@ -862,8 +958,17 @@ body.dark-mode {
         grid-template-columns: repeat(2, 1fr);
     }
 
+    .experience-item {
+        grid-template-columns: 220px 90px 1fr;
+        gap: 22px;
+    }
+
 }
 
+
+/* =========================================================
+   RESPONSIVE 800px
+========================================================= */
 
 @media (max-width: 800px) {
 
@@ -876,7 +981,9 @@ body.dark-mode {
     }
 
 
-    /* NAV */
+    /* =========================
+       NAV
+    ========================= */
 
     .menu-toggle {
         display: block;
@@ -887,8 +994,11 @@ body.dark-mode {
         top: 74px;
         left: 0;
         width: 100%;
+
         padding: 20px;
+
         background: var(--navy);
+
         border-top: 1px solid rgba(255,255,255,0.08);
 
         display: flex;
@@ -899,6 +1009,7 @@ body.dark-mode {
         transform: translateY(-120%);
         opacity: 0;
         pointer-events: none;
+
         transition: 0.3s ease;
     }
 
@@ -909,7 +1020,9 @@ body.dark-mode {
     }
 
 
-    /* HERO */
+    /* =========================
+       HERO
+    ========================= */
 
     .hero-container {
         grid-template-columns: 1fr;
@@ -940,7 +1053,9 @@ body.dark-mode {
     }
 
 
-    /* ABOUT */
+    /* =========================
+       ABOUT
+    ========================= */
 
     .about-grid {
         grid-template-columns: 1fr;
@@ -948,39 +1063,79 @@ body.dark-mode {
     }
 
 
-    /* SKILLS */
+    /* =========================
+       SKILLS
+    ========================= */
 
     .skills-grid {
         grid-template-columns: repeat(2, 1fr);
     }
 
 
-    /* PROJECT */
+    /* =========================
+       PROJECTS
+    ========================= */
 
     .projects-grid {
         grid-template-columns: 1fr;
     }
 
-
-    /* EXPERIENCE */
-
-    .experience-item {
-        grid-template-columns: 1fr;
-        gap: 15px;
-        padding: 35px 0;
+    .project-image {
+        aspect-ratio: 16 / 9;
     }
 
 
-    /* EDUCATION */
+    /* =========================
+       EXPERIENCE
+    ========================= */
+
+    .experience-item {
+        grid-template-columns: 180px 1fr;
+        gap: 25px;
+    }
+
+    .experience-image {
+        grid-column: 1 / -1;
+        width: 100%;
+        max-width: 420px;
+    }
+
+    .experience-side {
+        grid-column: 1;
+    }
+
+    .experience-content {
+        grid-column: 2;
+    }
+
+
+    /* =========================
+       EDUCATION
+    ========================= */
 
     .education-card {
-        grid-template-columns: 1fr;
-        gap: 20px;
+        grid-template-columns: 90px 1fr;
+        gap: 25px;
         padding: 30px;
     }
 
+    .education-year {
+        grid-column: 1 / -1;
+    }
 
-    /* CONTACT */
+    .education-logo {
+        width: 90px;
+        height: 90px;
+    }
+
+    .education-content {
+        grid-column: 2;
+    }
+
+
+    /* =========================
+       CONTACT
+    ========================= */
 
     .contact-box {
         grid-template-columns: 1fr;
@@ -992,7 +1147,9 @@ body.dark-mode {
     }
 
 
-    /* FOOTER */
+    /* =========================
+       FOOTER
+    ========================= */
 
     .footer-container {
         flex-direction: column;
@@ -1003,14 +1160,21 @@ body.dark-mode {
 }
 
 
+/* =========================================================
+   RESPONSIVE 480px
+========================================================= */
+
 @media (max-width: 480px) {
 
     .container {
         width: min(100% - 28px, 1160px);
     }
 
+
+    /* HERO */
+
     .hero h1 {
-        font-size: 52px;
+        font-size: 48px;
     }
 
     .hero h2 {
@@ -1033,12 +1197,81 @@ body.dark-mode {
         top: 18px;
     }
 
+
+    /* SKILLS */
+
     .skills-grid {
         grid-template-columns: 1fr;
     }
 
+
+    /* PROJECT */
+
+    .project-content {
+        padding: 22px;
+    }
+
     .project-content h3 {
         font-size: 21px;
+    }
+
+
+    /* EXPERIENCE */
+
+    .experience-item {
+        grid-template-columns: 1fr;
+        gap: 18px;
+    }
+
+    .experience-image {
+        grid-column: 1;
+        max-width: 100%;
+    }
+
+    .experience-side {
+        grid-column: 1;
+    }
+
+    .experience-content {
+        grid-column: 1;
+    }
+
+    .experience-content h3 {
+        font-size: 23px;
+    }
+
+
+    /* EDUCATION */
+
+    .education-card {
+        grid-template-columns: 1fr;
+        gap: 18px;
+        padding: 25px;
+    }
+
+    .education-year {
+        grid-column: 1;
+    }
+
+    .education-logo {
+        grid-column: 1;
+        width: 85px;
+        height: 85px;
+    }
+
+    .education-content {
+        grid-column: 1;
+    }
+
+    .education-content h3 {
+        font-size: 24px;
+    }
+
+
+    /* CONTACT */
+
+    .contact-content h2 {
+        font-size: 34px;
     }
 
 }
